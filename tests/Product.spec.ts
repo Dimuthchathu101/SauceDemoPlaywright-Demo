@@ -62,6 +62,32 @@ test.describe('Product Page Testing', () => {
     await page.screenshot({ path: 'screenshots/verifyAddOneItemIntoCart.png', fullPage: true });
   });
 
+
+  test.only('TC_PR_003	Add multiple products to the cart', async ({ browser }) => {
+    test.slow()
+    // Use the same context and page from the first test
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    // Initialize the LoginPage and log in again
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    const username = process.env.SAUCEDEMO_USER!;
+    const password = process.env.SAUCEDEMO_PASSWORD!;
+    await loginPage.login(username, password);
+
+    // Initialize the ProductPage
+    productPage = new ProductPage(page);
+
+    // Verify add
+    await productPage.addMultipleItemsIntoCart();
+    await productPage.verifyCartBadgeCountAsMultiple();
+
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/verifyAddMultipleItemsIntoCart.png', fullPage: true });
+  });
+
+
   test.afterAll(async () => {
     // Close the browser context after all tests
     await context.close();
