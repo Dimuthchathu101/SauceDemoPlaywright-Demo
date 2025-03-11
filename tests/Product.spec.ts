@@ -83,7 +83,7 @@ test.describe('Product Page Testing', () => {
     await page.screenshot({ path: 'screenshots/verifyAddMultipleItemsIntoCart.png', fullPage: true });
   });
 
-  test.only('TC_PR_004	Remove a product from the cart', async ({ browser }) => {
+  test('TC_PR_004	Remove a product from the cart', async ({ browser }) => {
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();

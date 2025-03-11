@@ -9,6 +9,9 @@ test.describe('SauceDemo Login Testing', () => {
   let page: Page;
   let loginPage: LoginPage;
   let productPage: ProductPage;
+  // Get credentials from environment variables
+  const username = process.env.SAUCEDEMO_USER!;
+  const password = process.env.SAUCEDEMO_PASSWORD!;
 
   test('TC_LF_001 - Login to the application', async ({ browser }) => {
     test.slow()
@@ -20,10 +23,6 @@ test.describe('SauceDemo Login Testing', () => {
 
     // Navigate to the login page
     await loginPage.goto();
-
-    // Get credentials from environment variables
-    const username = process.env.SAUCEDEMO_USER!;
-    const password = process.env.SAUCEDEMO_PASSWORD!;
 
     // Perform login
     await loginPage.login(username, password);
