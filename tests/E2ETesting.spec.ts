@@ -58,6 +58,8 @@ test.describe('SauceDemo Login and Screenshot Testing', () => {
     // Initialize the ProductPage
     productPage = new ProductPage(page);
 
+    await productPage.verifyAllItemsAvailable();
+
     // Verify that the Sauce Labs Backpack is visible
     await productPage.verifySauceLabsBackPack();
 
