@@ -107,7 +107,7 @@ test.describe('Product Page Testing', () => {
   });
 
 
-  test.afterAll(async () => {
+  test.afterEach(async () => {
     // Close the browser context after all tests
     await context.close();
   });

@@ -7,6 +7,7 @@ class CartPage {
         this.cartPageItems = page.locator("//div[@data-test='inventory-item']");
         this.removeCartItem = page.locator("//button[@id='remove-sauce-labs-bolt-t-shirt']");
         this.proceedToCheckoutButton = page.locator("//button[@id='checkout']");
+        this.continueShoppingButton = page.locator("//button[@id='continue-shopping']")
     }
 
     async cartItemsDisplayed() {
@@ -25,10 +26,13 @@ class CartPage {
         await this.removeCartItem.click();
     }
 
-    async proceesToCheckout(){
+    async proceesToCheckout() {
         await this.proceedToCheckoutButton.click();
     }
 
+    async continueShopping(){
+        await this.continueShoppingButton.click();
+    }
 }
 
 module.exports = { CartPage };

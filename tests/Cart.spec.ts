@@ -114,9 +114,43 @@ test.describe('SauceDemo Cart Testing', () => {
 
   // TC_CR_008	Verify Continue to Shoping function
 
+  test('TC_CR_008 Verify Continue to Shoping function', async ({ browser }) => {
+    test.slow()
+    // Use the same context and page from the first test
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    // Initialize the LoginPage and log in again
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(username, password);
+
+    // Initialize the ProductPage
+    productPage = new ProductPage(page);
+
+    // Verify add
+    await productPage.addMultipleItemsIntoCart();
+
+    // click on Cart to Navigate to Cart Page 
+    await productPage.moveToCartPage();
+
+    // Initialize the CartPage
+    cartPage = new CartPage(page)
+
+    // Remove Item from Cart
+    await cartPage.continueShopping();
+
+    await expect(page).toHaveURL(/inventory.html/); // Verify URL after login
+    await expect(page.locator('.title')).toHaveText('Products'); // Verify page title
+
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/cartContinueShopping.png', fullPage: true });
+
+  });
+
   // TC_CR_004	Verify buttons and links are clearly visible
   
-  test.afterAll(async () => {
+  test.afterEach(async () => {
     // Close the browser context after all tests
     await context.close();
   });
