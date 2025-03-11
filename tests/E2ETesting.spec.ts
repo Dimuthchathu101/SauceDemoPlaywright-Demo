@@ -4,12 +4,14 @@ import { ProductPage } from '../pages/ProductPage';
 import 'dotenv/config'; // Use import for dotenv
 
 test.describe('SauceDemo Login and Screenshot Testing', () => {
+
   let context: BrowserContext;
   let page: Page;
   let loginPage: LoginPage;
   let productPage: ProductPage;
 
   test('TC_LF_001 - Login to the application', async ({ browser }) => {
+    test.slow()
     context = await browser.newContext();
     page = await context.newPage();
 
@@ -41,6 +43,7 @@ test.describe('SauceDemo Login and Screenshot Testing', () => {
   });
 
   test('TC_PR_001 - Verify products are displayed', async ({ browser }) => {
+    test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
     page = await context.newPage();
