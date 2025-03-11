@@ -28,8 +28,6 @@ test.describe('SauceDemo Cart Testing', () => {
     // Initialize the ProductPage
     productPage = new ProductPage(page);
 
-
-
     // Verify add
     await productPage.addMultipleItemsIntoCart();
 
@@ -43,6 +41,11 @@ test.describe('SauceDemo Cart Testing', () => {
     await page.screenshot({ path: 'screenshots/veiewCartWithAddedProducts.png', fullPage: true });
   });
 
+  // TC_CR_002	Remove a product from the cart
+
+  // TC_CR_003	Proceed to checkout from cart
+
+  // TC_CR_004	Verify buttons and links are clearly visible
   
   test.afterAll(async () => {
     // Close the browser context after all tests
