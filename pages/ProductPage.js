@@ -18,6 +18,9 @@ class ProductPage {
     // Remove From Cart
     this.sauceLabsBackPackRemoveFromCart = page.locator("//button[@id='remove-sauce-labs-backpack']");
     this.sauceLabsBikeLightRemoveFromCart = page.locator("//button[@id='remove-sauce-labs-bike-light']");
+
+    // cartItem
+    this.carrtBadgeItem = page.locator("//a[@class='shopping_cart_link']");
   }
 
   // Verify that the Sauce Labs Backpack is visible
@@ -107,6 +110,11 @@ async verifyCartBadgeCountAsMultiple() {
   async removeSauceLabPackIntoCart() {
     await this.sauceLabsBackPackRemoveFromCart.click();
     console.log("Remove Sauce Lab Pack Into Cart");
+  }
+
+  async moveToCartPage(){
+    this.carrtBadgeItem.click();
+    console.log("Move to the Cart Page");
   }
 
 

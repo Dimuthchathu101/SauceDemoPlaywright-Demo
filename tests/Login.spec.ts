@@ -38,6 +38,7 @@ test.describe('SauceDemo Login Testing', () => {
     await expect(page.locator('.title')).toHaveText('Products'); // Verify page title
 
     // Take a screenshot of the products page
+    console.log("Login into the application succesful")
     await page.screenshot({ path: 'screenshots/navigate_to_products.png', fullPage: true });
   });
 

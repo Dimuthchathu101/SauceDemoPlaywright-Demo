@@ -4,21 +4,21 @@ const { expect } = require('@playwright/test');
 class CartPage {
   constructor(page) {
     this.page = page;
-    // this.usernameField = page.locator("//input[@id='user-name']");
-    // this.passwordField = page.locator("//input[@id='password']");
-    // this.loginButton = page.locator("//input[@id='login-button']");
+    this.cartPageItems = page.locator("//div[@data-test='inventory-item']");
   }
 
+  async cartItemsDisplayed() {
+    const items = await this.cartPageItems;
+    const itemCount = await items.count();
 
-  async login(username, password) {
-    // await this.usernameField.fill(username);
-    // await this.passwordField.fill(password);
-    // await this.loginButton.click();
-  }
+    // Validate all items are visible
+    for (let i = 0; i < itemCount; i++) {
+        await expect(items.nth(i)).toBeVisible();
+    }
 
-  async verifyLogin() {
-    // await expect(this.page.locator('text=Home')).toBeVisible();
-  }
+    console.log(`Total items displayed in the cart: ${itemCount}`);
+}
+
 }
 
 module.exports = { CartPage };

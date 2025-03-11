@@ -28,11 +28,17 @@ test.describe('SauceDemo Cart Testing', () => {
     // Initialize the ProductPage
     productPage = new ProductPage(page);
 
+
+
     // Verify add
     await productPage.addMultipleItemsIntoCart();
 
     // click on Cart to Navigate to Cart Page 
+    await productPage.moveToCartPage();
 
+        // Initialize the CartPage
+    cartPage = new CartPage(page)
+    await cartPage.cartItemsDisplayed();
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/veiewCartWithAddedProducts.png', fullPage: true });
   });
