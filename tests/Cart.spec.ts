@@ -38,6 +38,7 @@ test.describe('SauceDemo Cart Testing', () => {
     cartPage = new CartPage(page)
     await cartPage.cartItemsDisplayed();
     // Take another screenshot after verification
+    
     await page.screenshot({ path: 'screenshots/veiewCartWithAddedProducts.png', fullPage: true });
   });
 
@@ -75,6 +76,43 @@ test.describe('SauceDemo Cart Testing', () => {
   });
 
   // TC_CR_003	Proceed to checkout from cart
+
+  test('TC_CR_003 Proceed to checkout from cart', async ({ browser }) => {
+    test.slow()
+    // Use the same context and page from the first test
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    // Initialize the LoginPage and log in again
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(username, password);
+
+    // Initialize the ProductPage
+    productPage = new ProductPage(page);
+
+    // Verify add
+    await productPage.addMultipleItemsIntoCart();
+
+    // click on Cart to Navigate to Cart Page 
+    await productPage.moveToCartPage();
+
+    // Initialize the CartPage
+    cartPage = new CartPage(page)
+
+    // Remove Item from Cart
+    await cartPage.proceesToCheckout();
+
+    await expect(page).toHaveURL(/checkout-step-one.html/); // Verify URL after login
+    await expect(page.locator('.title')).toHaveText('Checkout: Your Information'); // Verify page title
+
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/processToCheckout.png', fullPage: true });
+
+  });
+
+
+  // TC_CR_008	Verify Continue to Shoping function
 
   // TC_CR_004	Verify buttons and links are clearly visible
   
