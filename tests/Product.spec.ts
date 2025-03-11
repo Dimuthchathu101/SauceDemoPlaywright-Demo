@@ -9,6 +9,8 @@ test.describe('Product Page Testing', () => {
   let page: Page;
   let loginPage: LoginPage;
   let productPage: ProductPage;
+  const username = process.env.SAUCEDEMO_USER!;
+  const password = process.env.SAUCEDEMO_PASSWORD!;
 
 
   test('TC_PR_001 - Verify products are displayed', async ({ browser }) => {
@@ -20,8 +22,6 @@ test.describe('Product Page Testing', () => {
     // Initialize the LoginPage and log in again
     loginPage = new LoginPage(page);
     await loginPage.goto();
-    const username = process.env.SAUCEDEMO_USER!;
-    const password = process.env.SAUCEDEMO_PASSWORD!;
     await loginPage.login(username, password);
 
     // Initialize the ProductPage
@@ -46,8 +46,6 @@ test.describe('Product Page Testing', () => {
     // Initialize the LoginPage and log in again
     loginPage = new LoginPage(page);
     await loginPage.goto();
-    const username = process.env.SAUCEDEMO_USER!;
-    const password = process.env.SAUCEDEMO_PASSWORD!;
     await loginPage.login(username, password);
 
     // Initialize the ProductPage
@@ -63,7 +61,7 @@ test.describe('Product Page Testing', () => {
   });
 
 
-  test.only('TC_PR_003	Add multiple products to the cart', async ({ browser }) => {
+  test('TC_PR_003	Add multiple products to the cart', async ({ browser }) => {
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -72,8 +70,6 @@ test.describe('Product Page Testing', () => {
     // Initialize the LoginPage and log in again
     loginPage = new LoginPage(page);
     await loginPage.goto();
-    const username = process.env.SAUCEDEMO_USER!;
-    const password = process.env.SAUCEDEMO_PASSWORD!;
     await loginPage.login(username, password);
 
     // Initialize the ProductPage
@@ -85,6 +81,29 @@ test.describe('Product Page Testing', () => {
 
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/verifyAddMultipleItemsIntoCart.png', fullPage: true });
+  });
+
+  test.only('TC_PR_004	Remove a product from the cart', async ({ browser }) => {
+    test.slow()
+    // Use the same context and page from the first test
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    // Initialize the LoginPage and log in again
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(username, password);
+
+    // Initialize the ProductPage
+    productPage = new ProductPage(page);
+
+    // Verify add
+    await productPage.addMultipleItemsIntoCart();
+    await productPage.removeMultipleItemsFromChart
+    await productPage.verifyRemoveMultipleItemsFromChart();
+
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/verifyRemoveMultipleItemsIntoCart.png', fullPage: true });
   });
 
 

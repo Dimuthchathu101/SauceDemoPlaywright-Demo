@@ -83,14 +83,19 @@ async verifyCartBadgeCountAsMultiple() {
   console.log(`Shopping cart badge displays '${cartBadgeText}'. Therefore, verify Cart Badge Count As Multiple Completed`);
 }
 
-
-
   async removeMultipleItemsFromChart(){
-
+    this.sauceLabsBackPackRemoveFromCart.click();
+    this.sauceLabsBikeLightRemoveFromCart.click();
   }
 
   async verifyRemoveMultipleItemsFromChart(){
-
+    await expect(this.cartBadge).toBeVisible();
+  
+    const cartBadgeText = await this.cartBadge.textContent();
+    await expect(cartBadgeText).not.toBeNull();
+    await expect(cartBadgeText.trim()).toMatch(/^\d+$/); // Ensure it contains only numbers
+    
+    console.log(`Shopping cart badge displays '${cartBadgeText}'. Therefore, verify Cart Badge Count As Multiple Items Removed Completed`)
   }
 
   async verifyCartBadgeCountAsOne() {
