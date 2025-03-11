@@ -1,0 +1,22 @@
+{
+  "name": "saucedemoplaywright-demo",
+  "version": "1.0.0",
+  "description": "Automation testing of SauceDemo Applivation",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimuthchathu101/SauceDemoPlaywright-Demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dimuthchathu101/SauceDemoPlaywright-Demo/issues"
+  },
+  "homepage": "https://github.com/Dimuthchathu101/SauceDemoPlaywright-Demo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.51.0",
+    "@types/node": "^22.13.10"
+  }
+}
