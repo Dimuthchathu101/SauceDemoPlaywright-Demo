@@ -5,6 +5,7 @@ class CartPage {
   constructor(page) {
     this.page = page;
     this.cartPageItems = page.locator("//div[@data-test='inventory-item']");
+    this.removeCartItem = page.locator("//button[@id='remove-sauce-labs-bolt-t-shirt']");
   }
 
   async cartItemsDisplayed() {
@@ -17,6 +18,10 @@ class CartPage {
     }
 
     console.log(`Total items displayed in the cart: ${itemCount}`);
+}
+
+async removeItemFromCart(){
+    await this.removeCartItem.click();
 }
 
 }

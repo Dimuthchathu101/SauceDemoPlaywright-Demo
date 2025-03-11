@@ -43,6 +43,37 @@ test.describe('SauceDemo Cart Testing', () => {
 
   // TC_CR_002	Remove a product from the cart
 
+  test('TC_CR_002 || Remove a product from the cart', async ({ browser }) => {
+    test.slow()
+    // Use the same context and page from the first test
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    // Initialize the LoginPage and log in again
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(username, password);
+
+    // Initialize the ProductPage
+    productPage = new ProductPage(page);
+
+    // Verify add
+    await productPage.addMultipleItemsIntoCart();
+
+    // click on Cart to Navigate to Cart Page 
+    await productPage.moveToCartPage();
+
+    // Initialize the CartPage
+    cartPage = new CartPage(page)
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/veiewCartBeforeRemoval.png', fullPage: true });
+    // Remove Item from Cart
+    await cartPage.removeItemFromCart();
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/veiewCartAfterRemoval.png', fullPage: true });
+
+  });
+
   // TC_CR_003	Proceed to checkout from cart
 
   // TC_CR_004	Verify buttons and links are clearly visible
