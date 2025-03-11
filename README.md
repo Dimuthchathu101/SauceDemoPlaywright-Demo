@@ -35,9 +35,9 @@ cd SauceDemoPlaywright-Demo
 npm install
 ```
 ### Run Tests
-#### Run all tests in headed mode:
+#### Run all tests in headless mode:
 ```bash
-npx playwright test --headed
+npx playwright test --headless
 ```
 #### Run tests in headless mode (default):
 ```bash
