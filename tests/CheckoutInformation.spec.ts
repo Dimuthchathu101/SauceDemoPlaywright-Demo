@@ -1,4 +1,3 @@
-// TC_CI_003	Verify buttons and links are clearly visible
 
 import { test, BrowserContext, Page, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
@@ -60,6 +59,43 @@ test.describe('SauceDemo Cart Testing', () => {
         // Take another screenshot after entering fields
         await page.screenshot({ path: 'screenshots/checkoutInformationFilled.png', fullPage: true });
 
+
+    });
+
+    // TC_CI_003	Verify buttons and links are clearly visible
+
+    test('TC_CI_003	Verify buttons and links are clearly visible', async ({ browser }) => {
+        test.slow()
+        // Use the same context and page from the first test
+        context = await browser.newContext();
+        page = await context.newPage();
+
+        // Initialize the LoginPage and log in again
+        loginPage = new LoginPage(page);
+        await loginPage.goto();
+        await loginPage.login(username, password);
+
+        // Initialize the ProductPage
+        productPage = new ProductPage(page);
+
+        // Verify add
+        await productPage.addMultipleItemsIntoCart();
+
+        // click on Cart to Navigate to Cart Page 
+        await productPage.moveToCartPage();
+
+        // Initialize the CartPage
+        cartPage = new CartPage(page);
+
+        // Remove Item from Cart
+        await cartPage.proceesToCheckout();
+
+
+        checkoutInformationPage = new CheckoutInformationPage(page);
+
+        checkoutInformationPage.verifyAvailabilityOfButtonsAndLinks();
+        // Take another screenshot after successful vrification
+        await page.screenshot({ path: 'screenshots/checkoutButtonsVerfication.png', fullPage: true });
 
 
     });

@@ -9,6 +9,8 @@ class CheckoutInformationPage {
     this.lastNameField = page.locator("//input[@id='postal-code']");
 
     this.continueButton = page.locator("//input[@id='continue']");
+    this.cartButton = page.locator("//a[@class='shopping_cart_link']");
+    this.sideNavButton = page.locator("//button[@id='react-burger-menu-btn']");
   }
 
   async goto() {
@@ -24,7 +26,12 @@ class CheckoutInformationPage {
 
 
   async verifyAvailabilityOfButtonsAndLinks() {
-    await expect(this.usernameField).toBeVisible();
+    await expect(this.continueButton).toBeVisible();
+    console.log("Continue Button is Visible");
+    await expect(this.cartButton).toBeVisible();
+    console.log("Cart Button is Visible");
+    await expect(this.sideNavButton).toBeVisible();
+    console.log("Side Nav Button is Visible")
   }
 }
 

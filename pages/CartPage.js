@@ -51,10 +51,14 @@ class CartPage {
 
     async verifyAvailabilityofItemsAndLinks(){
         await expect(this.proceedToCheckoutButton).toBeVisible();
+        console.log("Proceed to checkout button is visible");
         await expect(this.continueShoppingButton).toBeVisible();
+        console.log("Continue Shopping button is visible");
         // links
         await expect(this.sourceLabsBoltTShirt).toBeVisible();
+        console.log("Source Labs Bolt T shirt Link is visible")
         await expect(this.sourceLabsFleeceJacket).toBeVisible();
+        console.log("Source Labs Fleece Jacket Link is Visible")
         await this.clickOnSauceLabsBoltTShirt();
         await this.verifyClickOnSauceLabsBoltTShirt();
     }
