@@ -25,7 +25,7 @@ class CheckoutOverviewPage {
 
   async verifyProductAndPrice(){
     await expect(this.sauceLabsBoltTShirt).toBeVisible();
-    console.log("Sauce Labs Bolt T Shirt avaialble");
+    console.log("\n Sauce Labs Bolt T Shirt avaialble");
     await expect(this.sauceLabsBoltTShirtPrice).toBeVisible();
     console.log("Sauce Labs Bolt T Shirt Price Available");
     await expect(this.sauceLabsBoltTShirtQuantity).toBeVisible();
@@ -41,11 +41,11 @@ class CheckoutOverviewPage {
     await expect(this.shippingInfomration).toBeVisible();
     console.log("Shipping Information Avaialble");
     await expect(this.priceTotoal).toBeVisible();
-    console.log("Total Price Is Available");
+    console.log("Total Price Is Available\n");
   }
   async verifyAvailabilityOfButtonsAndLinks() {
     await expect(this.cartButton).toBeVisible();
-    console.log("Cart Button is Visible");
+    console.log("\nCart Button is Visible");
     await expect(this.sideNavButton).toBeVisible();
     console.log("Side Nav Button is Visible");
     await expect(this.sauceLabsBoltTShirt).toBeVisible();
@@ -55,7 +55,7 @@ class CheckoutOverviewPage {
     await expect(this.cancelButton).toBeVisible();
     console.log("Purchase Cancel Button is Avaialble");
     await expect(this.finishButton).toBeVisible();
-    console.log("Purchase Finsh Button is Avaialable");
+    console.log("Purchase Finsh Button is Avaialable \n");
 
   }
 

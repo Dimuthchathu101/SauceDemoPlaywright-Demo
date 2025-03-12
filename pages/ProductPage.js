@@ -58,7 +58,7 @@ class ProductPage {
 
   async addMultipleItemsIntoCart() {
     await this.sauceLabsBackPackAddToCart.click();
-    console.log("Added Sauce Labs Backpack to the cart.");
+    console.log(" \n Added Sauce Labs Backpack to the cart.");
 
     await this.sauceLabsBikeLightAddToCart.click();
     console.log("Added Sauce Labs Bike Light to the cart.");
@@ -72,7 +72,7 @@ class ProductPage {
     await this.sauceLabsOnesieAddToCart.click();
     console.log("Added Sauce Labs Onesie to the cart.");
 
-    console.log("All selected items have been added to the cart.");
+    console.log("All selected items have been added to the cart.\n");
 }
 
 
@@ -89,6 +89,7 @@ async verifyCartBadgeCountAsMultiple() {
   async removeMultipleItemsFromChart(){
     this.sauceLabsBackPackRemoveFromCart.click();
     this.sauceLabsBikeLightRemoveFromCart.click();
+    console.log(" \n Removed Multiple Items from the cart")
   }
 
   async verifyRemoveMultipleItemsFromChart(){

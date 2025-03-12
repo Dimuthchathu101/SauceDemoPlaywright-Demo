@@ -14,6 +14,7 @@ test.describe('Product Page Testing', () => {
 
 
   test('TC_PR_001 - Verify products are displayed', async ({ browser }) => {
+    console.log("\n \n ****TC_LF_001 - TC_PR_001 - Verify products are displayed Starts****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -35,9 +36,11 @@ test.describe('Product Page Testing', () => {
 
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/verifyProductItems.png', fullPage: true });
+    console.log("\n \n ****TC_LF_001 - TC_PR_001 - Verify products are displayed Ends****");
   });
 
   test('TC_PR_002	Add a single product to the cart', async ({ browser }) => {
+    console.log("\n \n ****TC_PR_002	Add a single product to the cart Starts****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -58,10 +61,12 @@ test.describe('Product Page Testing', () => {
 
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/verifyAddOneItemIntoCart.png', fullPage: true });
+    console.log("\n \n ****TC_PR_002	Add a single product to the cart Ends****");
   });
 
 
   test('TC_PR_003	Add multiple products to the cart', async ({ browser }) => {
+    console.log("\n \n ****TC_PR_003	Add multiple products to the cart Starts****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -81,9 +86,11 @@ test.describe('Product Page Testing', () => {
 
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/verifyAddMultipleItemsIntoCart.png', fullPage: true });
+    console.log("\n \n ****TC_PR_003	Add multiple products to the cart Ends****");
   });
 
   test('TC_PR_004	Remove a product from the cart', async ({ browser }) => {
+    console.log("\n \n ****TTC_PR_004	Remove a product from the cart Starts****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -104,6 +111,7 @@ test.describe('Product Page Testing', () => {
 
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/verifyRemoveMultipleItemsIntoCart.png', fullPage: true });
+    console.log("\n \n ****TTC_PR_004	Remove a product from the cart Ends****");
   });
 
 

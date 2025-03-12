@@ -17,7 +17,7 @@ test.describe('SauceDemo Cart Testing', () => {
 
   test('TC_CR_001	View cart with added products', async ({ browser }) => {
 
-    console.log("****TC_CR_001	View cart with added products Starts****")
+    console.log("\n \n ****TC_CR_001	View cart with added products Starts****")
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -44,14 +44,14 @@ test.describe('SauceDemo Cart Testing', () => {
     
     await page.screenshot({ path: 'screenshots/veiewCartWithAddedProducts.png', fullPage: true });
 
-    console.log("****TC_CR_001	View cart with added products Completed****");
+    console.log("\n \n **** TC_CR_001	View cart with added products Completed****");
   });
 
   // TC_CR_002	Remove a product from the cart
 
   test('TC_CR_002 || Remove a product from the cart', async ({ browser }) => {
 
-    console.log("****TC_CR_002 || Remove a product from the cart Started****");
+    console.log(" \n \n ****TC_CR_002 || Remove a product from the cart Started****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -80,7 +80,7 @@ test.describe('SauceDemo Cart Testing', () => {
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/veiewCartAfterRemoval.png', fullPage: true });
 
-    console.log("****TC_CR_002 || Remove a product from the cart Completed****");
+    console.log("\n \n ****TC_CR_002 || Remove a product from the cart Completed****");
 
   });
 
@@ -88,7 +88,7 @@ test.describe('SauceDemo Cart Testing', () => {
 
   test('TC_CR_003 Proceed to checkout from cart', async ({ browser }) => {
 
-    console.log("****TC_CR_003 Proceed to checkout from cart Started****");
+    console.log("\n \n ****TC_CR_003 Proceed to checkout from cart Started****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -120,7 +120,7 @@ test.describe('SauceDemo Cart Testing', () => {
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/processToCheckout.png', fullPage: true });
 
-    console.log("****TC_CR_003 Proceed to checkout from cart Completed****");
+    console.log("\n \n ****TC_CR_003 Proceed to checkout from cart Completed****");
 
   });
 
@@ -129,7 +129,7 @@ test.describe('SauceDemo Cart Testing', () => {
 
   test('TC_CR_008 Verify Continue to Shoping function', async ({ browser }) => {
 
-    console.log("****TC_CR_008 Verify Continue to Shoping function Started****");
+    console.log("\n \n ****TC_CR_008 Verify Continue to Shoping function Started****");
     test.slow()
     // Use the same context and page from the first test
     context = await browser.newContext();
@@ -161,7 +161,7 @@ test.describe('SauceDemo Cart Testing', () => {
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/cartContinueShopping.png', fullPage: true });
 
-    console.log("****TC_CR_008 Verify Continue to Shoping function Completed****");
+    console.log("\n \n ****TC_CR_008 Verify Continue to Shoping function Completed****");
 
   });
 
@@ -199,7 +199,7 @@ test.describe('SauceDemo Cart Testing', () => {
     // Take another screenshot after verification
     await page.screenshot({ path: 'screenshots/verifyAvalibilityofLinksAndButtons.png', fullPage: true });
 
-    console.log("****TC_CR_004	Verify buttons and links are clearly visible Completed****");
+    console.log("**** \n \n TC_CR_004	Verify buttons and links are clearly visible Completed****");
 
   });
   

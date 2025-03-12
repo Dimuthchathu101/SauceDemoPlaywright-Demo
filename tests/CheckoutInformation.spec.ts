@@ -6,7 +6,7 @@ import 'dotenv/config'; // Use import for dotenv
 import { CartPage } from '../pages/CartPage';
 import { CheckoutInformationPage } from '../pages/CheckoutInfromationPage';
 
-test.describe('SauceDemo Cart Testing', () => {
+test.describe('SauceDemo Checkout Information Testing', () => {
 
 
     let context: BrowserContext;
@@ -20,6 +20,7 @@ test.describe('SauceDemo Cart Testing', () => {
 
     // TC_CI_001	Proceed with all required fields filled
     test('TC_CI_001 Proceed with all required fields filled', async ({ browser }) => {
+        console.log("\n \n ****TC_CI_001 Proceed with all required fields filled Starts****")
         test.slow()
         // Use the same context and page from the first test
         context = await browser.newContext();
@@ -59,12 +60,14 @@ test.describe('SauceDemo Cart Testing', () => {
         // Take another screenshot after entering fields
         await page.screenshot({ path: 'screenshots/checkoutInformationFilled.png', fullPage: true });
 
+        console.log("\n \n ****TC_CI_001 Proceed with all required fields filled Ends****")
 
     });
 
     // TC_CI_003	Verify buttons and links are clearly visible
 
     test('TC_CI_003	Verify buttons and links are clearly visible', async ({ browser }) => {
+        console.log("\n \n ****TC_CI_003	Verify buttons and links are clearly visible Starts****")
         test.slow()
         // Use the same context and page from the first test
         context = await browser.newContext();
@@ -97,7 +100,7 @@ test.describe('SauceDemo Cart Testing', () => {
         // Take another screenshot after successful vrification
         await page.screenshot({ path: 'screenshots/checkoutButtonsVerfication.png', fullPage: true });
 
-
+        console.log("\n \n ****TC_CI_003	Verify buttons and links are clearly visible Ends****")
     });
 
 

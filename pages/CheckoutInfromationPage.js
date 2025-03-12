@@ -23,7 +23,7 @@ class CheckoutInformationPage {
 
   async verifyAvailabilityOfButtonsAndLinks() {
     await expect(this.continueButton).toBeVisible();
-    console.log("Continue Button is Visible");
+    console.log("\n Continue Button is Visible");
     await expect(this.cartButton).toBeVisible();
     console.log("Cart Button is Visible");
     await expect(this.sideNavButton).toBeVisible();

@@ -6,7 +6,7 @@ import { CartPage } from '../pages/CartPage';
 import { CheckoutInformationPage } from '../pages/CheckoutInfromationPage';
 import { CheckoutOverviewPage } from '../pages/CheckoutOverviewPage';
 
-test.describe('SauceDemo Cart Testing', () => {
+test.describe('SauceDemo Checkout Overview Testing', () => {
 
 
     let context: BrowserContext;
@@ -21,6 +21,7 @@ test.describe('SauceDemo Cart Testing', () => {
 
     // TC_CO_001 Verify checkouts overview page displays correct products
     test('TC_CO_001 Verify checkouts overview page displays correct products', async ({ browser }) => {
+        console.log("\n \n ****TC_CO_001 Verify checkouts overview page displays correct products Starts****")
         test.slow()
         // Use the same context and page from the first test
         context = await browser.newContext();
@@ -58,10 +59,13 @@ test.describe('SauceDemo Cart Testing', () => {
         // Take another screenshot after entering fields
         await page.screenshot({ path: 'screenshots/checkoutOverviewPriceAndName.png', fullPage: true });
 
+        console.log("\n \n ****TC_CO_001 Verify checkouts overview page displays correct products Ends****")
+
     });
 
 
-    test('TC_CO_002	Complete the purchase', async ({ browser }) => {
+    test('TC_CO_003 Cancel the purchase', async ({ browser }) => {
+        console.log("\n \n ****TC_CO_001 TC_CO_003 Cancel the purchase Starts****");
         test.slow()
         // Use the same context and page from the first test
         context = await browser.newContext();
@@ -102,10 +106,14 @@ test.describe('SauceDemo Cart Testing', () => {
         // Take another screenshot after entering fields
         await page.screenshot({ path: 'screenshots/checkoutOverviewCancelPurchase.png', fullPage: true });
 
+        console.log("\n \n ****TC_CO_001 TC_CO_003 Cancel the purchase Ends****");
+
     });
 
 
-    test('TC_CO_003 Cancel the purchase', async ({ browser }) => {
+    test('TC_CO_002	Complete the purchase', async ({ browser }) => {
+
+        console.log("\n \n ****TC_CO_002	Complete the purchase Starts****");
         test.slow()
         // Use the same context and page from the first test
         context = await browser.newContext();
@@ -147,9 +155,13 @@ test.describe('SauceDemo Cart Testing', () => {
         // Take another screenshot after entering fields
         await page.screenshot({ path: 'screenshots/checkoutOverviewConfirmPurchase.png', fullPage: true });
 
+        console.log("\n \n ****TC_CO_002	Complete the purchase Ends****");
+
     });
 
     test('TC_CO_004	Verify buttons and links are clearly visible', async ({ browser }) => {
+
+        console.log("\n \n ****TC_CO_004	Verify buttons and links are clearly visible Starts****");
         test.slow()
         // Use the same context and page from the first test
         context = await browser.newContext();
@@ -172,7 +184,7 @@ test.describe('SauceDemo Cart Testing', () => {
         // Initialize the CartPage
         cartPage = new CartPage(page);
 
-        // Remove Item from Cart
+        // Continue to Buy Item from Cart
         await cartPage.proceesToCheckout();
 
         checkoutInformationPage = new CheckoutInformationPage(page);
@@ -186,6 +198,8 @@ test.describe('SauceDemo Cart Testing', () => {
 
         // Take another screenshot after entering fields
         await page.screenshot({ path: 'screenshots/checkoutOverviewButtonsAndLinks.png', fullPage: true });
+
+        console.log("\n \n ****TC_CO_004	Verify buttons and links are clearly visible Ends****");
 
     });
 

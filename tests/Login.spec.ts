@@ -14,6 +14,8 @@ test.describe('SauceDemo Login Testing', () => {
   const password = process.env.SAUCEDEMO_PASSWORD!;
 
   test('TC_LF_001 - Login to the application', async ({ browser }) => {
+
+    console.log("\n \n ****TC_LF_001 - Login to the application Starts****");
     test.slow()
     context = await browser.newContext();
     page = await context.newPage();
@@ -40,6 +42,8 @@ test.describe('SauceDemo Login Testing', () => {
     // Take a screenshot of the products page
     console.log("Login into the application succesful")
     await page.screenshot({ path: 'screenshots/navigate_to_products.png', fullPage: true });
+
+    console.log("\n \n ****TC_LF_001 - Login to the application Endss****");
   });
 
   
