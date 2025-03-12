@@ -4,10 +4,11 @@ const { expect } = require('@playwright/test');
 class CheckoutInformationPage {
   constructor(page) {
     this.page = page;
-    this.usernameField = page.locator("//input[@id='user-name']");
-    this.passwordField = page.locator("//input[@id='password']");
+    this.usernameField = page.locator("//input[@id='first-name']");
+    this.firstNameField = page.locator("//input[@id='last-name']");
+    this.lastNameField = page.locator("//input[@id='postal-code']");
 
-    this.loginButton = page.locator("//input[@id='login-button']");
+    this.continueButton = page.locator("//input[@id='continue']");
   }
 
   async goto() {
@@ -16,10 +17,11 @@ class CheckoutInformationPage {
 
   async fillInformation(firstname, lastname, zipcode) {
     await this.usernameField.fill(firstname);
-    await this.passwordField.fill(lastname);
-    await this.passwordField.fill(lastname);
-    await this.loginButton.click();
+    await this.firstNameField.fill(lastname);
+    await this.lastNameField.fill(zipcode);
+    await this.continueButton.click();
   }
+
 
   async verifyAvailabilityOfButtonsAndLinks() {
     await expect(this.usernameField).toBeVisible();
