@@ -58,6 +58,16 @@ class CheckoutOverviewPage {
     console.log("Purchase Finsh Button is Avaialable");
 
   }
+
+  async clickOnCancelButton(){
+    await this.cancelButton.click();
+    console.log("Click on Cancel Button");
+  }
+
+  async clicOnFinshButton(){
+    await this.finishButton.click();
+    console.log("Checkout Finish Confirmed")
+  }
 }
 
 module.exports = { CheckoutOverviewPage };
