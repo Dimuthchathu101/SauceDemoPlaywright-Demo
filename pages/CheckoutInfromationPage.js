@@ -13,10 +13,6 @@ class CheckoutInformationPage {
     this.sideNavButton = page.locator("//button[@id='react-burger-menu-btn']");
   }
 
-  async goto() {
-    await this.page.goto('https://www.saucedemo.com/');
-  }
-
   async fillInformation(firstname, lastname, zipcode) {
     await this.usernameField.fill(firstname);
     await this.firstNameField.fill(lastname);
