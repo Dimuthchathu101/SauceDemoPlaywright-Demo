@@ -22,7 +22,7 @@ test.describe('SauceDemo End To End Testing', () => {
     const password = process.env.SAUCEDEMO_PASSWORD!;
 
     // TC_CO_001 Verify checkouts overview page displays correct products
-    test.only('SauceDemo End To End Testing', async ({ browser }) => {
+    test('SauceDemo End To End Testing', async ({ browser }) => {
 
       console.log("\n \n ****Final E2E Testing Starts****");
         test.slow()
