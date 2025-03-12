@@ -6,6 +6,7 @@ import { CartPage } from '../pages/CartPage';
 
 test.describe('SauceDemo Cart Testing', () => {
 
+
   let context: BrowserContext;
   let page: Page;
   let loginPage: LoginPage;
@@ -149,6 +150,38 @@ test.describe('SauceDemo Cart Testing', () => {
   });
 
   // TC_CR_004	Verify buttons and links are clearly visible
+  
+
+  test('TC_CR_004	Verify buttons and links are clearly visible', async ({ browser }) => {
+    test.slow()
+    // Use the same context and page from the first test
+    context = await browser.newContext();
+    page = await context.newPage();
+
+    // Initialize the LoginPage and log in again
+    loginPage = new LoginPage(page);
+    await loginPage.goto();
+    await loginPage.login(username, password);
+
+    // Initialize the ProductPage
+    productPage = new ProductPage(page);
+
+    // Verify add
+    await productPage.addMultipleItemsIntoCart();
+
+    // click on Cart to Navigate to Cart Page 
+    await productPage.moveToCartPage();
+
+    // Initialize the CartPage
+    cartPage = new CartPage(page)
+
+    // Remove Item from Cart
+    await cartPage.verifyAvailabilityofItemsAndLinks()
+
+    // Take another screenshot after verification
+    await page.screenshot({ path: 'screenshots/verifyAvalibilityofLinksAndButtons.png', fullPage: true });
+
+  });
   
   test.afterEach(async () => {
     // Close the browser context after all tests

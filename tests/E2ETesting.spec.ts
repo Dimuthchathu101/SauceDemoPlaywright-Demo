@@ -4,6 +4,8 @@ import { ProductPage } from '../pages/ProductPage';
 import 'dotenv/config'; // Use import for dotenv
 
 test.describe('SauceDemo End to End Testing', () => {
+  test.slow();
+  test.slow();
 
   let context: BrowserContext;
   let page: Page;
